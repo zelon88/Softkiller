@@ -37,9 +37,9 @@ INSTALLATION INSTRUCTIONS:
 
 NOTES:
 Supported Arguments
-   -e  (Email)  =  Set 'emailResult' config entry to TRUE (send emails when run).
-   -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications).
-   -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console).
-   -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection).
-   -k  (Process To Kill)  =  Set '-k <process name>' to the complete name of a process to kill (required).
-   -h  (Help)  =  Use the 'help' argument to display instructional text about this application.
+  -e  (Email)  =  Set 'emailResult' config entry to TRUE (send emails when run).
+  -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications).
+  -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console).
+  -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection).
+  -k  (Process To Kill)  =  Set '-k <process name>' to the complete name of a process to kill (required).
+  -h  (Help)  =  Use the 'help' argument to display instructional text about this application.
