@@ -10,7 +10,7 @@ ORIGINAL VERSION DATE: 10/28/2019
 
 CURRENT VERSION DATE: 10/28/2019
 
-VERSION: v1.3
+VERSION: v1.4
 
 DESCRIPTION: 
 A simple script to gently kill tasks that need to be stopped for backup or automation purposes.

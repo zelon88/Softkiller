@@ -1,5 +1,15 @@
 ----------
 COMMIT - 10/28/2019  -  Justin Grimes
+v1.4 - Fix syntax error with wscript.sleep. 
+
+-v1.4.
+-Got rid of erroneous parenthesis around wscript.sleep.
+-Sleep is in MS, not S.
+-Duh!
+----------
+
+----------
+COMMIT - 10/28/2019  -  Justin Grimes
 v1.3 - Fix double check looking at officeApps array instead of user input. 
 
 -v1.3.
