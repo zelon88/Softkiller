@@ -25,9 +25,12 @@ Run with a "User Configuration" GPO to run in the context of a logged-on user.
 Fake Sendmail For Windows by Byron Jones is required and included with this application per the fake Sendmail license. 
 More information about Fake sendmail For Windows can be found at:  https://www.glob.com.au/sendmail/
 
+
 INSTALLATION INSTRUCTIONS:
 1. Open the Softkiller.vbs script with a text editor and modify the "Company-Specific Variables" entries at the start of the script to match your environment.
 2. Open sendmail.ini with a text editor and modify the entries within to match your email server configuration.
 2. Copy the contents of the entire Softkiller directory to your network-wide scripts folder. 
 3. Create a scheduled task under "User Configuration" using Group Policy Objects (GPO's) to run this script on a regular basis in the context of the currently logged-in user.
 5. Keep in mind that the script only has visibility into the processes that are running as the CURRENT USER! So if you run your task under SYSTEM or ADMINISTRATOR you will only see tasks that are also running as SYSTEM or ADMINISTRATOR. If you run this task as JohnDoe123 you will only see tasks that are running as JohnDoe123. 
+6. Run with WScript.exe to get output in a MsgBox. 
+7. Run with CScript.exe to get output in a command prompt.
