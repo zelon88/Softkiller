@@ -43,6 +43,10 @@ c:\Softkiller.vbs -k WINWORD.EXE -o -v -e -f
 
 c:\Softkiller.vbs -k CALC.EXE 
 
+c:\Softkiller.vbs -f -k OUTLOOK.EXE 
+
+c:\Softkiller.vbs -h
+
 Supported Arguments
 
 -e  (Email)  =  Set 'emailResult' config entry to TRUE (send emails when run).
