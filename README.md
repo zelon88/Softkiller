@@ -43,7 +43,7 @@ Supported Arguments
 
 -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications).
 
--v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console).
+-v  (Verbose)  =  Set 'verbose' config entry to TRUE (log output to the console).
 
 -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection).
 
