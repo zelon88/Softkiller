@@ -7,7 +7,7 @@
   ' -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications).
   ' -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console).
   ' -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection).
-  ' -k  (Process To Kill)  =  Set '-l <process name>' to the complete name of a process to kill (required).
+  ' -k  (Process To Kill)  =  Set '-k <process name>' to the complete name of a process to kill (required).
   ' -h  (Help)  =  Use the 'help' argument to display instructional text about this application.
 
 ' --------------------------------------------------
@@ -86,7 +86,7 @@ SKMailFile = "C:\Users\" & strUserName & "\Softkiller_Warning.mail"
   ' -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications).
   ' -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console).
   ' -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection).
-  ' -k  (Process To Kill)  =  Set '-l <process name>' to the complete name of a process to kill (required).
+  ' -k  (Process To Kill)  =  Set '-k <process name>' to the complete name of a process to kill (required).
   ' -h  (Help)  =  Use the 'help' argument to display instructional text about this application.
 Function ParseArgs()
   ParseArgs = FALSE
@@ -116,7 +116,7 @@ Function ParseArgs()
        " -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications)." & VBNewLine & _
        " -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console)." & VBNewLine & _
        " -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection)." & VBNewLine & _
-       " -k  (Process To Kill)  =  Set '-l <process name>' to the complete name of a process to kill (required)." & VBNewLine & _
+       " -k  (Process To Kill)  =  Set '-k <process name>' to the complete name of a process to kill (required)." & VBNewLine & _
        " -h  (Help)  =  Use the 'help' argument to display instructional text about this application."
       WScript.Echo(helpText)
     End If
@@ -174,7 +174,7 @@ End Function
 ' --------------------------------------------------
 'A function for running SendMail to send a prepared Warning.mail email message.
 Function SendEmail() 
-  objShell.run "c:\Windows\System32\cmd.exe /c " & SKAppPath & " sendmail.exe " & SKmailFile, 0, TRUE
+  objShell.run "c:\Windows\System32\cmd.exe /c " & SKAppPath & "sendmail.exe " & SKmailFile, 0, TRUE
 End Function
 ' --------------------------------------------------
 
@@ -227,11 +227,13 @@ Function KillProcess(strProgramToKill)
           End If
         End If
       Next
-      'If the "force" argument is set we terminate the currently selected program at the end of the script regardless.
+      'If the "force" argument is set we terminate the currently selected program regardless.
       If Not skip And force Then
+        'Termination the currently selected process.
         objProcess.Terminate()
         KillProcess = TRUE
       End If
+      'If we skipped the "Quit()" method above we will now kill the selected process using Terminate() instead.
       If Not skip And Not force Then
         'Termination the currently selected process.
         objProcess.Terminate()
@@ -242,8 +244,8 @@ Function KillProcess(strProgramToKill)
     Set colProcessList = objWMIService.ExecQuery("Select * from Win32_Process Where Name = '" & strProgramToKill & "'")
     'Iterate through the results of the "colProcessList" query and return any process matching the one supplied by the user.
     For Each objProcess in colProcessList
-      'See if the current process is still in the "officeApps" array.
-      If LCase(objProcess.Name) = LCase(officeApp) Then
+      'See if the current process is still running.
+      If LCase(objProcess.Name) = LCase(strProgramToKill) Then
         KillProcess = FALSE
       End If
     Next
@@ -265,7 +267,9 @@ End Function
 If ParseArgs() Then
   'Create directories & verify user input is valid.
   If CreateReqdDirs() and Len("" & killExe) > 0 Then
+    'Kill the specified process.
     killResult = KillProcess(killExe)
+    'Prepare some display text for log & console output.
     echoText = Replace(SKScriptName, ".vbs", "") & ", " & strDateTime & ": Operation " & killStatus & "! " & killExe & " was " & notText & "terminated" & methodText & "." 
   End If
   'Send an email if the "-e" argument or config entry is set.
@@ -277,7 +281,7 @@ If ParseArgs() Then
   If outputResult Then
     CreateSoftKillLog(echoText)
   End If
-  'Write output to the console if the "-v" argument or congig entry is set.
+  'Write output to the console if the "-v" argument or config entry is set.
   If verbose Then
     WScript.Echo(echoText)
   End If
