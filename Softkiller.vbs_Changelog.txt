@@ -1,0 +1,13 @@
+----------
+
+----------
+COMMIT - 10/28/2019  -  Justin Grimes
+v1.0 - Initial commit. Add application.
+
+-v1.0. 
+-Tried this app with a variety of user accounts. Admin doesn't work. Must run as the invoked user. Must invoke the user who has applications open. 
+-Schedule with Task Scheduler using a GPO under "User Configuration" in order to make the task run as the current user.
+-This script is for killing tasks (especially Office tasks) for the purpose of unlocking in-use files for backups.
+-If a backup operation failes this can be run against the running application to try and gently kill it.
+-For example, use this with a scheduled task at night to kill Outlook.exe so that Windows Backup can get access to Outlook.pst files.
+----------
