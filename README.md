@@ -37,6 +37,12 @@ INSTALLATION INSTRUCTIONS:
 
 NOTES:
 
+Usage
+
+c:\Softkiller.vbs -k WINWORD.EXE -o -v -e -f
+
+c:\Softkiller.vbs -k CALC.EXE 
+
 Supported Arguments
 
 -e  (Email)  =  Set 'emailResult' config entry to TRUE (send emails when run).
