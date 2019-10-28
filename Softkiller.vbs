@@ -1,5 +1,5 @@
 'File Name: Softkiller.vbs
-'Version: v1.2, 10/28/2019
+'Version: v1.3, 10/28/2019
 'Author: Justin Grimes, 10/28/2019
 
 'Supported Arguments
@@ -223,7 +223,6 @@ Function KillProcess(strProgramToKill)
             KillProcess = TRUE
             skip = TRUE
             methodText = " gently"
-            WScript.Sleep(5)
           End If
         End If
       Next
@@ -240,6 +239,7 @@ Function KillProcess(strProgramToKill)
         KillProcess = TRUE
       End If
     Next
+    WScript.Sleep(10)
     'Execute the query set again to check that the terminated process was actually terminated.
     Set colProcessList = objWMIService.ExecQuery("Select * from Win32_Process Where Name = '" & strProgramToKill & "'")
     'Iterate through the results of the "colProcessList" query and return any process matching the one supplied by the user.

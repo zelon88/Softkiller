@@ -1,5 +1,15 @@
 ----------
 COMMIT - 10/28/2019  -  Justin Grimes
+v1.3 - Fix double check looking at officeApps array instead of user input. 
+
+-v1.3.
+-Move sleep timer outside a condition which doesn't always fire.
+-Reduce liklihood of false failure reporting.
+-Increase sleep timer.
+----------
+
+----------
+COMMIT - 10/28/2019  -  Justin Grimes
 v1.2 - Fix double check looking at officeApps array instead of user input. 
 
 -v1.2.
