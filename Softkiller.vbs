@@ -112,12 +112,12 @@ Function ParseArgs()
     'Displays help text.
     If argms.item(i) = "-h" Then
       helpText = "Usage:  " & SKScriptName & " -k <App-To-Kill.exe> -f -o -e -v" & VBNewLine & _
-       "' -e  (Email)  =  Set 'emailResult' config entry to TRUE (send emails when run)." & VBNewLine & _
-       "' -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications)." & VBNewLine & _
-       "' -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console)." & VBNewLine & _
-       "' -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection)." & VBNewLine & _
-       "' -k  (Process To Kill)  =  Set '-l <process name>' to the complete name of a process to kill (required)." & VBNewLine & _
-       "' -h  (Help)  =  Use the 'help' argument to display instructional text about this application."
+       " -e  (Email)  =  Set 'emailResult' config entry to TRUE (send emails when run)." & VBNewLine & _
+       " -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications)." & VBNewLine & _
+       " -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console)." & VBNewLine & _
+       " -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection)." & VBNewLine & _
+       " -k  (Process To Kill)  =  Set '-l <process name>' to the complete name of a process to kill (required)." & VBNewLine & _
+       " -h  (Help)  =  Use the 'help' argument to display instructional text about this application."
       WScript.Echo(helpText)
     End If
     'Detect the -k argument.
