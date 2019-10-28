@@ -1,5 +1,13 @@
 ----------
 COMMIT - 10/28/2019  -  Justin Grimes
+v1.2 - Use absolute paths for sendmail.exe instead of relative paths.
+
+-v1.2.
+-Use absolute paths for sendmail.exe instead of relative paths.
+----------
+
+----------
+COMMIT - 10/28/2019  -  Justin Grimes
 v1.1 - Fix help text. 
 
 -v1.1.

@@ -1,5 +1,5 @@
 'File Name: Softkiller.vbs
-'Version: v1.0, 10/28/2019
+'Version: v1.2, 10/28/2019
 'Author: Justin Grimes, 10/28/2019
 
 'Supported Arguments
@@ -174,7 +174,7 @@ End Function
 ' --------------------------------------------------
 'A function for running SendMail to send a prepared Warning.mail email message.
 Function SendEmail() 
-  objShell.run "c:\Windows\System32\cmd.exe /c sendmail.exe " & SKmailFile, 0, TRUE
+  objShell.run "c:\Windows\System32\cmd.exe /c " & SKAppPath & " sendmail.exe " & SKmailFile, 0, TRUE
 End Function
 ' --------------------------------------------------
 
