@@ -34,3 +34,12 @@ INSTALLATION INSTRUCTIONS:
 5. Keep in mind that the script only has visibility into the processes that are running as the CURRENT USER! So if you run your task under SYSTEM or ADMINISTRATOR you will only see tasks that are also running as SYSTEM or ADMINISTRATOR. If you run this task as JohnDoe123 you will only see tasks that are running as JohnDoe123. 
 6. Run with WScript.exe to get output in a MsgBox. 
 7. Run with CScript.exe to get output in a command prompt.
+
+NOTES:
+Supported Arguments
+   -e  (Email)  =  Set 'emailResult' config entry to TRUE (send emails when run).
+   -o  (Output)  =  Set 'outputResult' config entry to TRUE (create a log file when this application kills other applications).
+   -v  (verbose)  =  Set 'verbose' config entry to TRUE (log output to the console).
+   -f  (Forced)  =  Set 'force' config entry to TRUE (bypass Office Application detection).
+   -k  (Process To Kill)  =  Set '-k <process name>' to the complete name of a process to kill (required).
+   -h  (Help)  =  Use the 'help' argument to display instructional text about this application.
